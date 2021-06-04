@@ -30,3 +30,23 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# カスタムgem
+gem 'simple_form'
+gem 'devise'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+gem 'enumerize'
+gem 'pry-rails'
+gem 'faker'
+gem 'rack-cors'
+gem 'carrierwave'
+gem 'annotate'
+gem 'react-rails'
+gem 'stripe'
+gem 'dotenv-rails'
+gem 'rails-i18n', '~> 6.0'
+gem 'devise-i18n'
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
+gem 'devise-bootstrap-views', '~> 1.0'
