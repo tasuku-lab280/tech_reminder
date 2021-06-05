@@ -7,6 +7,10 @@ class CreateUserTables < ActiveRecord::Migration[6.0]
       t.string      :encrypted_password, null: false
       t.string      :image
       t.text        :note
+
+      ## Rememberable
+      t.datetime :remember_created_at
+
       t.timestamps null: false
     end
 

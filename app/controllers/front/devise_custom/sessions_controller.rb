@@ -1,4 +1,4 @@
 class Front::DeviseCustom::SessionsController < Devise::SessionsController
   # レイアウト
-  layout 'front'
+  layout 'front_modal'
 end

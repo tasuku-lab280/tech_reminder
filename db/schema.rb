@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_000000) do
     t.string "encrypted_password", null: false
     t.string "image"
     t.text "note"
+    t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

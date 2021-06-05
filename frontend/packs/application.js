@@ -5,6 +5,6 @@ require("channels")
 require("jquery")
 require("bootstrap");
 
-import "../src/application.scss";
+import "../src/scss/application.scss";
 
 console.log('Hello Webpacker!');
