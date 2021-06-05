@@ -1,22 +1,12 @@
-FROM ruby:2.7.0
-
-## nodejsとyarnはwebpackをインストールする際に必要
-# yarnパッケージ管理ツールをインストール
-RUN apt-get update && apt-get install -y curl apt-transport-https wget && \
-  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-  echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-  apt-get update && apt-get install -y yarn
-
-RUN apt-get update -qq && apt-get install -y nodejs yarn
-RUN mkdir /myapp
-WORKDIR /myapp
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
+FROM ruby:2.7
+RUN apt-get update -qq && apt-get install -y nodejs yarnpkg
+RUN ln -s /usr/bin/yarnpkg /usr/bin/yarn
+RUN mkdir /app
+WORKDIR /app
+COPY Gemfile /app/Gemfile
+COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
-COPY . /myapp
-
-RUN yarn install --check-files
-RUN bundle exec rails webpacker:compile
+COPY . /app
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
