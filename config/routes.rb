@@ -14,5 +14,12 @@ Rails.application.routes.draw do
       sign_in:  'login',
       sign_out: 'logout',
     }
+
+    # 会員
+    resources :users, only: [:show, :edit] do
+      member do
+        get 'posts'
+      end
+    end
   end
 end

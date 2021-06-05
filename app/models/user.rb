@@ -2,14 +2,15 @@
 #
 # Table name: users
 #
-#  id                 :bigint           not null, primary key
-#  nickname           :string(255)      not null
-#  email              :string(255)      not null
-#  encrypted_password :string(255)      not null
-#  image              :string(255)
-#  note               :text(65535)
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  id                  :bigint           not null, primary key
+#  nickname            :string(255)      not null
+#  email               :string(255)      not null
+#  encrypted_password  :string(255)      not null
+#  image               :string(255)
+#  note                :text(65535)
+#  remember_created_at :datetime
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
 #
 
 #
@@ -27,6 +28,7 @@ class User < ApplicationRecord
 
 
   # 関連
+  has_many :posts, dependent: :destroy
 
 
   # 委譲

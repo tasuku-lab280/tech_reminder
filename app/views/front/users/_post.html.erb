@@ -1,0 +1,14 @@
+<div class="border-bottom p-3">
+  <p class="font-weight-bold"><%= post.title %></p>
+  <div class="d-flex">
+    <div class="border rounded mr-3 px-1">
+      <span class="text-muted small"><%= post.status_text %></span>
+    </div>
+    <div class="mr-3">
+      <span class="text-muted small"><%= post.body.length %>字</span>
+    </div>
+    <div>
+      <span class="text-muted small"><%= time_ago_in_words(post.created_at) %>前に作成</span>
+    </div>
+  </div>
+</div>

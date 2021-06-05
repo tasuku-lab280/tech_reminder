@@ -2,9 +2,16 @@ ja:
   activerecord:
     models:
       user: '会員'
+      post: '投稿'
 
     attributes:
       user:
         nickname: 'ニックネーム'
         email: 'Eメール'
         password: 'パスワード'
+      
+      post:
+        user_id: '会員ID'
+        status: 'ステータス'
+        title: 'タイトル'
+        body: '本文'
