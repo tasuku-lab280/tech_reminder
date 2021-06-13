@@ -6,6 +6,7 @@ require("jquery")
 require("bootstrap");
 
 import "../src/scss/application.scss";
+import "@fortawesome/fontawesome-free/js/all"
 
 console.log('Hello Webpacker!');
 
