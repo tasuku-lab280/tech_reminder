@@ -21,5 +21,8 @@ Rails.application.routes.draw do
         get 'posts'
       end
     end
+
+    # 投稿
+    resources :posts, only: [:new, :create, :show]
   end
 end

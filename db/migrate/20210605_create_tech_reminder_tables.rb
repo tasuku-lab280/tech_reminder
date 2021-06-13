@@ -3,7 +3,7 @@ class CreateTechReminderTables < ActiveRecord::Migration[6.0]
     # 投稿
     create_table :posts do |t|
       t.integer     :user_id, null: false
-      t.string      :status,  null: false
+      t.string      :status,  null: false, default: :draft
       t.string      :title,   null: false
       t.text        :body,    null: false
       t.string      :image

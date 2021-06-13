@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_000000) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "status", null: false
+    t.string "status", default: "draft", null: false
     t.string "title", null: false
     t.text "body", null: false
     t.string "image"

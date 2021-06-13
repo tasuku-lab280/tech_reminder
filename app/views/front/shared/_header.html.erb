@@ -4,15 +4,28 @@
     <ul class="navbar-nav">
       <% if user_signed_in? %>
         <li class="dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= current_user.nickname %>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to 'アカウント設定', '#', class: 'dropdown-item small' %>
+            <%= link_to new_post_path, class: 'dropdown-item small' do %>
+              <i class="fas fa-plus"></i>
+              投稿する
+            <% end %>
+            <%= link_to '#', class: 'dropdown-item small' do %>
+              <i class="fas fa-cog"></i>
+              アカウント設定
+            <% end %>
             <div class="dropdown-divider"></div>
-            <%= link_to '記事の管理', posts_user_path(current_user), class: 'dropdown-item small' %>
+            <%= link_to posts_user_path(current_user), class: 'dropdown-item small' do %>
+              <i class="far fa-newspaper"></i>
+              記事の管理
+            <% end %>
             <div class="dropdown-divider"></div>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'dropdown-item small' %>
+            <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item small' do %>
+              <i class="fas fa-sign-out-alt"></i>
+              ログアウト
+            <% end %>
           </div>
         </li>
       <% else %>
@@ -26,9 +39,3 @@
     </ul>
   </div>
 </header>
-
-<script>
-$(function() {
-  console.log("OK");
-});
-</script>
