@@ -17,6 +17,7 @@ class Front::PostsController < FrontMemberController
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.user
   end
 
 

@@ -17,8 +17,6 @@
     </div>
   </div>
   <div class="col-md-3">
-    <div class="bg-white rounded p-3">
-      <span class="font-weight-bold">自分の記事</span>
-    </div>
+    <%= render partial: 'front/shared/user_info', locals: { user: @user, posts: @user.posts } %>
   </div>
 </div>
