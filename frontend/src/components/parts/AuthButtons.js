@@ -1,27 +1,42 @@
-import { Link } from "react-router-dom"
+import { useContext } from "react"
+import { useHistory, Link } from "react-router-dom"
+import Cookies from "js-cookie";
 import { makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 
-const useStyles = makeStyles((theme) => ({
-  iconButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-    textDecoration: "none",
-    color: "inherit"
-  },
+import { signOut } from "../../lib/api/auth";
+import { AuthContext } from "../../Router";
+
+const useStyles = makeStyles(() => ({
   linkBtn: {
     textTransform: "none"
   }
 }))
 
 const AuthButtons = () => {
+  const { loading, isSignedIn, setIsSignedIn } = useContext(AuthContext);
   const classes = useStyles();
-  const loading = false;
-  const isSignedIn = false;
-  const handleSignOut = () => {
-    console.log('ログアウト');
+  const histroy = useHistory();
+
+  const handleSignOut = async () => {
+    try {
+      const res = await signOut()
+
+      if (res.data.success === true) {
+        Cookies.remove("_access_token")
+        Cookies.remove("_client")
+        Cookies.remove("_uid")
+
+        setIsSignedIn(false)
+        histroy.push("/signin")
+
+        console.log("Succeeded in sign out")
+      } else {
+        console.log("Failed in sign out")
+      }
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   if (!loading) {
@@ -32,7 +47,7 @@ const AuthButtons = () => {
           className={classes.linkBtn}
           onClick={handleSignOut}
         >
-          ログアウト
+          Sign out
         </Button>
       )
     } else {
@@ -44,7 +59,7 @@ const AuthButtons = () => {
             color="inherit"
             className={classes.linkBtn}
           >
-            ログイン
+            Sign in
           </Button>
           <Button
             component={Link}
@@ -52,7 +67,7 @@ const AuthButtons = () => {
             color="inherit"
             className={classes.linkBtn}
           >
-            アカウント登録
+            Sign Up
           </Button>
         </>
       )
