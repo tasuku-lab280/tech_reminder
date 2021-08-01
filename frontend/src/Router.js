@@ -1,13 +1,18 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import { Home } from "./templates";
+import Common from "../src/components/layouts/Common";
+import { Home, SignUp, SignIn } from "./templates";
 
 const Router = () => {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={Home} />
-      </Switch>
+      <Common>
+        <Switch>
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/" component={Home} />
+        </Switch>
+      </Common>
     </BrowserRouter>
   );
 };
