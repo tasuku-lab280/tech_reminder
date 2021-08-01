@@ -8,14 +8,6 @@ const AlertMessage = ({ open }) => {
 
   return (
     <>
-      <Snackbar
-        open={open}
-        autoHideDuration={6000}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        onClose={handleCloseAlertMessage}
-      >
-        aaaaa
-      </Snackbar>
     </>
   )
 }

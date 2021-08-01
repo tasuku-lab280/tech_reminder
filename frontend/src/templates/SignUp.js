@@ -46,7 +46,7 @@ const SignUp = () => {
     e.preventDefault()
 
     const params = {
-      name: name,
+      nickname: name,
       email: email,
       password: password,
       passwordConfirmation: passwordConfirmation
@@ -66,8 +66,7 @@ const SignUp = () => {
         setCurrentUser(res.data.data)
 
         histroy.push("/")
-
-        console.log("Signed in successfully!")
+        console.log('アカウント登録に成功しました。')
       } else {
         setAlertMessageOpen(true)
       }

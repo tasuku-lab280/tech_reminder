@@ -2,13 +2,13 @@ import client from "./client";
 import Cookies from "js-cookie";
 
 // サインアップ
-export const signUp = () => {
-  return client.post('auth')
+export const signUp = (params) => {
+  return client.post('auth', params)
 }
 
 // ログイン
-export const signIn = () => {
-  return client.post('auth/sign_in')
+export const signIn = (params) => {
+  return client.post('auth/sign_in', params)
 }
 
 // ログアウト
