@@ -19,6 +19,7 @@
 class User < ApplicationRecord
   # モジュール
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  include DeviseTokenAuth::Concerns::User
 
 
   # 定数

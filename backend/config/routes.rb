@@ -24,5 +24,18 @@ Rails.application.routes.draw do
 
     # 投稿
     resources :posts, only: [:new, :create, :show]
+
+    # API
+    namespace :api do
+      namespace :v1 do
+        resources :test, only: :index
+        mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+          registrations: 'front/api/v1/auth/registrations'
+        }
+        namespace :auth do
+          resources :sessions, only: :index
+        end
+      end
+    end
   end
 end
