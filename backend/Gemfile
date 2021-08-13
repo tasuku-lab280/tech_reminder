@@ -33,6 +33,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # カスタムgem
 gem 'simple_form'
 gem 'devise'
+gem 'devise_token_auth'
 gem 'kaminari'
 gem 'enumerize'
 gem 'pry-rails'
