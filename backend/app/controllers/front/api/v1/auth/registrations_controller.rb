@@ -3,6 +3,6 @@ class Front::Api::V1::Auth::RegistrationsController < DeviseTokenAuth::Registrat
   private
 
   def sign_up_params
-    params.permit(:nickname, :email, :password, :password_confirmation)
+    params.require(:registration).permit(:nickname, :email, :password, :password_confirmation)
   end
 end
